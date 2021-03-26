@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    </head>
+<body style="background-color: black;">
+
+    <h1 style="text-align: center; color: white;"> Type in a combination of keys, to reveal a surprise! </h1>
+    <h5 style="text-align: center; color: white;"> (combination: shark) </h3>
+
+    <script>
+
+        const typed = [];
+        const combo = "shark"
+
+        function checkLetters(event){
+            typed.push(event.key);
+            typed.splice(-combo.length-1, typed.length-combo.length);
+            if(typed.join('').includes(combo)){
+                cornify_add();
+            }
+        };
+
+        window.addEventListener("keyup", checkLetters);
+
+    </script>
+
+</body>
+</html>
